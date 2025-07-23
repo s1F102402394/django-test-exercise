@@ -28,8 +28,14 @@
     <div>
       <a href="{% url 'index' %}">Top</a>
       | <a href="{% url 'update' task.id %}">Edit</a>
-      | <a href="{% url 'delete' task.id %}">delete</a>
+      | <a href="{% url 'delete' task.id %}" onclick="return confirmDelete();">delete</a>
     </div>
+    <script>
+  function confirmDelete() {
+    return confirm("本当にこのタスクを削除しますか？");
+  }
+    </script>
+
   </body>
 
 </html>

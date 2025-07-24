@@ -19,6 +19,11 @@ def index(request):
     else:
         tasks = Task.objects.order_by('-posted_at')
 
+    query = request.GET.get('q')
+    
+    if query:
+        tasks = tasks.filter(title__icontains=query)
+
     context = {
         'tasks': tasks
     }

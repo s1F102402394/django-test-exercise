@@ -11,6 +11,13 @@
   <body>
     <h1>Sample To Do Application</h1>
     <p>You can submit tasks from the following form.</p>
+
+    <form method="get" action=".">
+      <input type="text" name="q" placeholder="Search tasks" value="{{ request.GET.q }}">>
+      <button type="submit">Search</button>
+    </form>
+
+
     <form action="{% url 'index' %}" method="post">
       {% csrf_token %}
       <div>
